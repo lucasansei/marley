@@ -11,6 +11,7 @@ from frappe.utils import cint
 
 @frappe.whitelist()
 def get_feed(name, document_types=None, date_range=None, start=0, page_length=20):
+	frappe.only_for(["System Manager"])
 	"""get feed"""
 	filters = get_filters(name, document_types, date_range)
 
@@ -46,6 +47,7 @@ def get_filters(name, document_types=None, date_range=None):
 
 @frappe.whitelist()
 def get_feed_for_dt(doctype, docname):
+	frappe.only_for(["System Manager"])
 	"""get feed"""
 	result = frappe.db.get_all(
 		"Patient Medical Record",
@@ -59,6 +61,7 @@ def get_feed_for_dt(doctype, docname):
 
 @frappe.whitelist()
 def get_patient_history_doctypes():
+	frappe.only_for(["System Manager"])
 	document_types = []
 	settings = frappe.get_single("Patient History Settings")
 

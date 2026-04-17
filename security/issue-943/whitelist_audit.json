@@ -1,0 +1,938 @@
+[
+  {
+    "file": "healthcare/controllers/queries.py",
+    "line": 6,
+    "function": "get_healthcare_service_units",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/controllers/service_request_controller.py",
+    "line": 56,
+    "function": "set_request_status",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/custom_doctype/sales_invoice.py",
+    "line": 8,
+    "function": "set_healthcare_services",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/dashboard_chart_source/department_wise_patient_appointments/department_wise_patient_appointments.py",
+    "line": 12,
+    "function": "get",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure/clinical_procedure.py",
+    "line": 120,
+    "function": "complete_procedure",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure/clinical_procedure.py",
+    "line": 184,
+    "function": "start_procedure",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure/clinical_procedure.py",
+    "line": 210,
+    "function": "make_material_receipt",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure/clinical_procedure.py",
+    "line": 254,
+    "function": "get_procedure_consumables",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure/clinical_procedure.py",
+    "line": 260,
+    "function": "set_stock_items",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure/clinical_procedure.py",
+    "line": 291,
+    "function": "make_stock_entry",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure/clinical_procedure.py",
+    "line": 311,
+    "function": "make_procedure",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure/clinical_procedure.py",
+    "line": 361,
+    "function": "get_procedure_prescribed",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure_template/clinical_procedure_template.py",
+    "line": 55,
+    "function": "get_item_details",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/clinical_procedure_template/clinical_procedure_template.py",
+    "line": 123,
+    "function": "change_item_code_from_template",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/diagnostic_report/diagnostic_report.py",
+    "line": 81,
+    "function": "set_observation_status",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/fee_validity/fee_validity.py",
+    "line": 65,
+    "function": "check_fee_validity",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/fee_validity/fee_validity.py",
+    "line": 161,
+    "function": "get_fee_validity",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/healthcare_practitioner/healthcare_practitioner.py",
+    "line": 130,
+    "function": "get_practitioner_list",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/healthcare_practitioner/healthcare_practitioner.py",
+    "line": 154,
+    "function": "get_supplier_and_user",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/healthcare_service_unit/healthcare_service_unit.py",
+    "line": 74,
+    "function": "add_multiple_service_units",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/healthcare_service_unit_type/healthcare_service_unit_type.py",
+    "line": 81,
+    "function": "create_service_unit_item",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/healthcare_service_unit_type/healthcare_service_unit_type.py",
+    "line": 150,
+    "function": "change_item_code",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/healthcare_settings/healthcare_settings.py",
+    "line": 44,
+    "function": "get_sms_text",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_medication_entry/inpatient_medication_entry.py",
+    "line": 22,
+    "function": "get_medication_orders",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_medication_entry/inpatient_medication_entry.py",
+    "line": 323,
+    "function": "make_difference_stock_entry",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_medication_order/inpatient_medication_order.py",
+    "line": 68,
+    "function": "add_order_entries",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_medication_order/inpatient_medication_order.py",
+    "line": 86,
+    "function": "get_from_encounter",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_record/inpatient_record.py",
+    "line": 96,
+    "function": "admit",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_record/inpatient_record.py",
+    "line": 101,
+    "function": "discharge",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_record/inpatient_record.py",
+    "line": 106,
+    "function": "transfer",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_record/inpatient_record.py",
+    "line": 115,
+    "function": "schedule_inpatient",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_record/inpatient_record.py",
+    "line": 170,
+    "function": "schedule_discharge",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_record/inpatient_record.py",
+    "line": 398,
+    "function": "get_leave_from",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/inpatient_record/inpatient_record.py",
+    "line": 429,
+    "function": "set_ip_order_cancelled",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/lab_test/lab_test.py",
+    "line": 134,
+    "function": "update_status",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/lab_test/lab_test.py",
+    "line": 141,
+    "function": "create_multiple",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/lab_test/lab_test.py",
+    "line": 432,
+    "function": "get_employee_by_user_id",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/lab_test/lab_test.py",
+    "line": 441,
+    "function": "get_lab_test_prescribed",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/lab_test_template/lab_test_template.py",
+    "line": 145,
+    "function": "change_test_code_from_template",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/medication/medication.py",
+    "line": 140,
+    "function": "change_item_code_from_medication",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/medication/medication.py",
+    "line": 153,
+    "function": "get_children",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/medication_request/medication_request.py",
+    "line": 87,
+    "function": "set_medication_request_status",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/nursing_task/nursing_task.py",
+    "line": 138,
+    "function": "create_nursing_tasks_from_template",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/observation/observation.py",
+    "line": 134,
+    "function": "get_observation_details",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/observation/observation.py",
+    "line": 327,
+    "function": "edit_observation",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/observation/observation.py",
+    "line": 340,
+    "function": "add_observation",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/observation/observation.py",
+    "line": 367,
+    "function": "record_observation_result",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/observation/observation.py",
+    "line": 453,
+    "function": "add_note",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/observation/observation.py",
+    "line": 479,
+    "function": "get_observation_result_template",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/observation/observation.py",
+    "line": 493,
+    "function": "set_observation_status",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient/patient.py",
+    "line": 178,
+    "function": "invoice_patient_registration",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient/patient.py",
+    "line": 372,
+    "function": "get_patient_detail",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 332,
+    "function": "get_therapy_types",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 397,
+    "function": "check_payment_reqd",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 415,
+    "function": "invoice_appointment",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 484,
+    "function": "update_fee_validity",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 589,
+    "function": "get_availability_data",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 756,
+    "function": "update_status",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 784,
+    "function": "make_encounter",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 850,
+    "function": "get_events",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 895,
+    "function": "get_procedure_prescribed",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_appointment/patient_appointment.py",
+    "line": 914,
+    "function": "get_prescribed_therapies",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_assessment/patient_assessment.py",
+    "line": 23,
+    "function": "create_patient_assessment",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 65,
+    "function": "get_applicable_treatment_plans",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 111,
+    "function": "set_treatment_plans",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 297,
+    "function": "add_clinical_note",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 309,
+    "function": "edit_clinical_note",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 316,
+    "function": "delete_clinical_note",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 322,
+    "function": "get_clinical_notes",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 334,
+    "function": "make_ip_medication_order",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 430,
+    "function": "create_service_request",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 454,
+    "function": "create_medication_request",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 463,
+    "function": "get_medications_query",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 504,
+    "function": "get_medications",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 510,
+    "function": "cancel_request",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 517,
+    "function": "create_service_request_from_widget",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 532,
+    "function": "get_encounter_details",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_encounter/patient_encounter.py",
+    "line": 579,
+    "function": "create_patient_referral",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_history_settings/patient_history_settings.py",
+    "line": 49,
+    "function": "get_doctype_fields",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/patient_history_settings/patient_history_settings.py",
+    "line": 71,
+    "function": "get_date_field_for_dt",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/sample_collection/sample_collection.py",
+    "line": 77,
+    "function": "create_observation",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/service_request/service_request.py",
+    "line": 102,
+    "function": "set_service_request_status",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/service_request/service_request.py",
+    "line": 108,
+    "function": "make_clinical_procedure",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/service_request/service_request.py",
+    "line": 142,
+    "function": "make_lab_test",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/service_request/service_request.py",
+    "line": 178,
+    "function": "make_therapy_session",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/service_request/service_request.py",
+    "line": 211,
+    "function": "make_observation",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/service_request/service_request.py",
+    "line": 478,
+    "function": "make_appointment",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/therapy_plan/therapy_plan.py",
+    "line": 43,
+    "function": "set_therapy_details_from_template",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/therapy_plan/therapy_plan.py",
+    "line": 58,
+    "function": "make_therapy_session",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/therapy_plan/therapy_plan.py",
+    "line": 83,
+    "function": "make_sales_invoice",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/therapy_session/therapy_session.py",
+    "line": 156,
+    "function": "create_therapy_session",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/therapy_session/therapy_session.py",
+    "line": 193,
+    "function": "invoice_therapy_session",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/therapy_type/therapy_type.py",
+    "line": 70,
+    "function": "add_exercises",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/doctype/therapy_type/therapy_type.py",
+    "line": 133,
+    "function": "change_item_code_from_therapy",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_history/patient_history.py",
+    "line": 13,
+    "function": "get_feed",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_history/patient_history.py",
+    "line": 49,
+    "function": "get_feed_for_dt",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_history/patient_history.py",
+    "line": 63,
+    "function": "get_patient_history_doctypes",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_progress/patient_progress.py",
+    "line": 10,
+    "function": "get_therapy_sessions_count",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_progress/patient_progress.py",
+    "line": 23,
+    "function": "get_patient_heatmap_data",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_progress/patient_progress.py",
+    "line": 44,
+    "function": "get_therapy_sessions_distribution_data",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_progress/patient_progress.py",
+    "line": 78,
+    "function": "get_therapy_progress_data",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_progress/patient_progress.py",
+    "line": 113,
+    "function": "get_patient_assessment_data",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_progress/patient_progress.py",
+    "line": 146,
+    "function": "get_therapy_assessment_correlation_data",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/page/patient_progress/patient_progress.py",
+    "line": 189,
+    "function": "get_assessment_parameter_data",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 29,
+    "function": "get_healthcare_services_to_invoice",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 415,
+    "function": "get_appointment_billing_item_and_rate",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 710,
+    "function": "get_drugs_to_invoice",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 771,
+    "function": "get_children",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 815,
+    "function": "get_patient_vitals",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 833,
+    "function": "render_docs_as_html",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 843,
+    "function": "render_doc_as_html",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 1107,
+    "function": "get_medical_codes",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 1395,
+    "function": "generate_barcodes",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/healthcare/utils.py",
+    "line": 1418,
+    "function": "add_node",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/regional/india/abdm/utils.py",
+    "line": 11,
+    "function": "get_authorization_token",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/regional/india/abdm/utils.py",
+    "line": 61,
+    "function": "abdm_request",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  },
+  {
+    "file": "healthcare/regional/india/abdm/utils.py",
+    "line": 210,
+    "function": "get_health_data",
+    "allow_guest": false,
+    "has_explicit_permission_check": true,
+    "risk": "low"
+  }
+]

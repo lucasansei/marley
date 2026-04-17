@@ -47,6 +47,7 @@ class PatientHistorySettings(Document):
 
 	@frappe.whitelist()
 	def get_doctype_fields(self, document_type, fields):
+		frappe.only_for(["System Manager"])
 		multicheck_fields = []
 		doc_fields = frappe.get_meta(document_type).fields
 
@@ -68,6 +69,7 @@ class PatientHistorySettings(Document):
 
 	@frappe.whitelist()
 	def get_date_field_for_dt(self, document_type):
+		frappe.only_for(["System Manager"])
 		meta = frappe.get_meta(document_type)
 		date_fields = meta.get("fields", {"fieldtype": ["in", ["Date", "Datetime"]]})
 

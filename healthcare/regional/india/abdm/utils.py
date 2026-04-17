@@ -9,6 +9,7 @@ from healthcare.regional.india.abdm.abdm_config import get_url
 
 @frappe.whitelist()
 def get_authorization_token():
+	frappe.only_for(["System Manager"])
 	client_id, client_secret, auth_base_url = frappe.db.get_value(
 		"ABDM Settings",
 		{"company": frappe.defaults.get_user_default("Company"), "default": 1},
@@ -58,6 +59,7 @@ def get_authorization_token():
 
 @frappe.whitelist()
 def abdm_request(payload, url_key, req_type, rec_headers=None, to_be_enc=None, patient_name=None):
+	frappe.only_for(["System Manager"])
 	if payload and isinstance(payload, str):
 		payload = json.loads(payload)
 
@@ -206,6 +208,7 @@ def get_rsa_encrypted_message(message, pub_key):
 
 @frappe.whitelist()
 def get_health_data(otp, txnId, auth_method):
+	frappe.only_for(["System Manager"])
 	confirm_w_otp_payload = {"to_encrypt": otp, "txnId": txnId}
 	if auth_method == "AADHAAR_OTP":
 		url_key = "confirm_w_aadhaar_otp"

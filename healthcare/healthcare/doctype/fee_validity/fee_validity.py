@@ -63,6 +63,7 @@ def patient_has_validity(appointment):
 
 @frappe.whitelist()
 def check_fee_validity(appointment, date=None, practitioner=None):
+	frappe.only_for(["System Manager"])
 	if not frappe.db.get_single_value("Healthcare Settings", "enable_free_follow_ups"):
 		return
 
@@ -158,6 +159,7 @@ def manage_fee_validity(appointment):
 
 @frappe.whitelist()
 def get_fee_validity(appointment_name, date, ignore_status=False):
+	frappe.only_for(["System Manager"])
 	"""
 	Get the fee validity details for the free visit appointment
 	:params appointment_name: Appointment doc name

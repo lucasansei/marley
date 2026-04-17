@@ -100,11 +100,13 @@ def update_service_request_status(service_request, service_dt, service_dn, statu
 
 @frappe.whitelist()
 def set_service_request_status(service_request, status):
+	frappe.only_for(["System Manager"])
 	frappe.db.set_value("Service Request", service_request, "status", status)
 
 
 @frappe.whitelist()
 def make_clinical_procedure(service_request):
+	frappe.only_for(["System Manager"])
 	if isinstance(service_request, string_types):
 		service_request = json.loads(service_request)
 		service_request = frappe._dict(service_request)
@@ -138,6 +140,7 @@ def make_clinical_procedure(service_request):
 
 @frappe.whitelist()
 def make_lab_test(service_request):
+	frappe.only_for(["System Manager"])
 	if isinstance(service_request, string_types):
 		service_request = json.loads(service_request)
 		service_request = frappe._dict(service_request)
@@ -173,6 +176,7 @@ def make_lab_test(service_request):
 
 @frappe.whitelist()
 def make_therapy_session(service_request):
+	frappe.only_for(["System Manager"])
 	if isinstance(service_request, string_types):
 		service_request = json.loads(service_request)
 		service_request = frappe._dict(service_request)
@@ -205,6 +209,7 @@ def make_therapy_session(service_request):
 
 @frappe.whitelist()
 def make_observation(service_request):
+	frappe.only_for(["System Manager"])
 	if isinstance(service_request, string_types):
 		service_request = json.loads(service_request)
 		service_request = frappe._dict(service_request)
@@ -471,6 +476,7 @@ def check_observation_sample_exist(service_request):
 
 @frappe.whitelist()
 def make_appointment(source_name, target_doc=None, ignore_permissions=False):
+	frappe.only_for(["System Manager"])
 	def postprocess(source, target):
 		set_missing_values(source, target)
 

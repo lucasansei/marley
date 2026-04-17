@@ -138,6 +138,7 @@ def make_item_price(item, item_price, price_list):
 
 @frappe.whitelist()
 def change_item_code_from_medication(item_code, doc):
+	frappe.only_for(["System Manager"])
 	doc = frappe._dict(json.loads(doc))
 
 	if frappe.db.exists("Item", {"item_code": item_code}):

@@ -42,6 +42,7 @@ class TherapyPlan(Document):
 	@frappe.whitelist()
 	def set_therapy_details_from_template(self):
 		# Add therapy types in the child table
+		frappe.only_for(["System Manager"])
 		self.set("therapy_plan_details", [])
 		therapy_plan_template = frappe.get_doc("Therapy Plan Template", self.therapy_plan_template)
 
@@ -55,6 +56,7 @@ class TherapyPlan(Document):
 
 @frappe.whitelist()
 def make_therapy_session(therapy_plan, patient, therapy_type, company, appointment=None):
+	frappe.only_for(["System Manager"])
 	therapy_type = frappe.get_doc("Therapy Type", therapy_type)
 
 	therapy_session = frappe.new_doc("Therapy Session")
@@ -79,6 +81,7 @@ def make_therapy_session(therapy_plan, patient, therapy_type, company, appointme
 
 @frappe.whitelist()
 def make_sales_invoice(reference_name, patient, company, therapy_plan_template):
+	frappe.only_for(["System Manager"])
 	from erpnext.stock.get_item_details import get_item_details
 
 	si = frappe.new_doc("Sales Invoice")

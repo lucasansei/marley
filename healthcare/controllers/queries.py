@@ -4,6 +4,7 @@ import frappe
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_healthcare_service_units(doctype, txt, searchfield, start, page_len, filters):
+	frappe.only_for(["System Manager"])
 	table = frappe.qb.DocType("Healthcare Service Unit")
 	query = (
 		frappe.qb.from_(table)

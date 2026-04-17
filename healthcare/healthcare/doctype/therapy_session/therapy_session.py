@@ -154,6 +154,7 @@ class TherapySession(Document):
 
 @frappe.whitelist()
 def create_therapy_session(source_name, target_doc=None):
+	frappe.only_for(["System Manager"])
 	def set_missing_values(source, target):
 		therapy_type = frappe.get_doc("Therapy Type", source.therapy_type)
 		target.exercises = therapy_type.exercises
@@ -190,6 +191,7 @@ def create_therapy_session(source_name, target_doc=None):
 
 @frappe.whitelist()
 def invoice_therapy_session(source_name, target_doc=None):
+	frappe.only_for(["System Manager"])
 	def set_missing_values(source, target):
 		target.customer = frappe.db.get_value("Patient", source.patient, "customer")
 		target.due_date = getdate()

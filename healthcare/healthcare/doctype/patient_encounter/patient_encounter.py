@@ -63,6 +63,7 @@ class PatientEncounter(Document):
 	@staticmethod
 	@frappe.whitelist()
 	def get_applicable_treatment_plans(encounter):
+		frappe.only_for(["System Manager"])
 		patient = frappe.get_doc("Patient", encounter["patient"])
 
 		plan_filters = {}
@@ -108,6 +109,7 @@ class PatientEncounter(Document):
 
 	@frappe.whitelist()
 	def set_treatment_plans(self, treatment_plans=None):
+		frappe.only_for(["System Manager"])
 		for treatment_plan in treatment_plans:
 			self.set_treatment_plan(treatment_plan)
 
@@ -293,6 +295,7 @@ class PatientEncounter(Document):
 
 	@frappe.whitelist()
 	def add_clinical_note(self, note, note_type=None):
+		frappe.only_for(["System Manager"])
 		clinical_note_doc = frappe.new_doc("Clinical Note")
 		clinical_note_doc.patient = self.patient
 		clinical_note_doc.reference_doc = "Patient Encounter"
@@ -304,17 +307,20 @@ class PatientEncounter(Document):
 
 	@frappe.whitelist()
 	def edit_clinical_note(self, note, note_name):
+		frappe.only_for(["System Manager"])
 		clinical_note_doc = frappe.get_doc("Clinical Note", note_name)
 		clinical_note_doc.note = note
 		clinical_note_doc.save()
 
 	@frappe.whitelist()
 	def delete_clinical_note(self, note_name):
+		frappe.only_for(["System Manager"])
 		if frappe.db.exists("Clinical Note", note_name):
 			frappe.delete_doc("Clinical Note", note_name)
 
 	@frappe.whitelist()
 	def get_clinical_notes(self, patient):
+		frappe.only_for(["System Manager"])
 		return frappe.get_all(
 			"Clinical Note",
 			{
@@ -326,6 +332,7 @@ class PatientEncounter(Document):
 
 @frappe.whitelist()
 def make_ip_medication_order(source_name, target_doc=None):
+	frappe.only_for(["System Manager"])
 	def set_missing_values(source, target):
 		target.start_date = source.encounter_date
 		for entry in source.drug_prescription:
@@ -421,6 +428,7 @@ def set_codification_table_from_diagnosis(doc):
 
 @frappe.whitelist()
 def create_service_request(encounter):
+	frappe.only_for(["System Manager"])
 	encounter_doc = frappe.get_doc("Patient Encounter", encounter)
 	if not frappe.db.exists("Service Request", {"order_group": encounter}):
 		encounter_doc.make_service_request()
@@ -444,6 +452,7 @@ def create_service_request(encounter):
 
 @frappe.whitelist()
 def create_medication_request(encounter):
+	frappe.only_for(["System Manager"])
 	encounter_doc = frappe.get_doc("Patient Encounter", encounter)
 	if not frappe.db.exists("Medication Request", {"order_group": encounter}):
 		encounter_doc.make_medication_request()
@@ -452,6 +461,7 @@ def create_medication_request(encounter):
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_medications_query(doctype, txt, searchfield, start, page_len, filters):
+	frappe.only_for(["System Manager"])
 	medication_name = filters.get("medication")
 
 	medication_child = frappe.qb.DocType("Medication Linked Item")
@@ -492,17 +502,20 @@ def get_medications_query(doctype, txt, searchfield, start, page_len, filters):
 
 @frappe.whitelist()
 def get_medications(medication):
+	frappe.only_for(["System Manager"])
 	return frappe.get_all("Medication Linked Item", {"parent": medication}, ["item"])
 
 
 @frappe.whitelist()
 def cancel_request(doctype, request):
+	frappe.only_for(["System Manager"])
 	request_doc = frappe.get_doc(doctype, request)
 	request_doc.cancel()
 
 
 @frappe.whitelist()
 def create_service_request_from_widget(encounter, data, medication_request=False):
+	frappe.only_for(["System Manager"])
 	data = json.loads(data)
 	encounter_doc = frappe.get_doc("Patient Encounter", encounter)
 	if medication_request:
@@ -517,6 +530,7 @@ def create_service_request_from_widget(encounter, data, medication_request=False
 
 @frappe.whitelist()
 def get_encounter_details(doc):
+	frappe.only_for(["System Manager"])
 	doc = json.loads(doc)
 	if doc.get("__islocal") == 0:
 		doc = frappe.get_doc(doc.doctype, doc.docname)
@@ -563,6 +577,7 @@ def get_value_map(status_codes):
 
 @frappe.whitelist()
 def create_patient_referral(encounter, references):
+	frappe.only_for(["System Manager"])
 	if isinstance(references, str):
 		references = json.loads(references)
 

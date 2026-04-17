@@ -85,4 +85,5 @@ class MedicationRequest(ServiceRequestController):
 
 @frappe.whitelist()
 def set_medication_request_status(medication_request, status):
+	frappe.only_for(["System Manager"])
 	frappe.db.set_value("Medication Request", medication_request, "status", status)

@@ -72,6 +72,7 @@ class HealthcareServiceUnit(NestedSet):
 
 @frappe.whitelist()
 def add_multiple_service_units(parent, data):
+	frappe.only_for(["System Manager"])
 	"""
 	parent - parent service unit under which the service units are to be created
 	data (dict) - company, healthcare_service_unit_name, count, service_unit_type, warehouse, service_unit_capacity

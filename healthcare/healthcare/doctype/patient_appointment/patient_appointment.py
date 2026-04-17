@@ -330,6 +330,7 @@ class PatientAppointment(Document):
 
 	@frappe.whitelist()
 	def get_therapy_types(self):
+		frappe.only_for(["System Manager"])
 		if not self.therapy_plan:
 			return
 
@@ -394,6 +395,7 @@ class PatientAppointment(Document):
 
 @frappe.whitelist()
 def check_payment_reqd(patient):
+	frappe.only_for(["System Manager"])
 	"""
 	return True if patient need to be invoiced when show_payment_popup enabled or have no fee validity
 	return False show_payment_popup is disabled
@@ -411,6 +413,7 @@ def check_payment_reqd(patient):
 
 @frappe.whitelist()
 def invoice_appointment(appointment_name, discount_percentage=0, discount_amount=0):
+	frappe.only_for(["System Manager"])
 	appointment_doc = frappe.get_doc("Patient Appointment", appointment_name)
 	settings = frappe.get_single("Healthcare Settings")
 
@@ -479,6 +482,7 @@ def create_sales_invoice(appointment_doc, discount_percentage=0, discount_amount
 
 @frappe.whitelist()
 def update_fee_validity(appointment):
+	frappe.only_for(["System Manager"])
 	if isinstance(appointment, str):
 		appointment = json.loads(appointment)
 		appointment = frappe.get_doc(appointment)
@@ -583,6 +587,7 @@ def check_sales_invoice_exists(appointment):
 
 @frappe.whitelist()
 def get_availability_data(date, practitioner, appointment):
+	frappe.only_for(["System Manager"])
 	"""
 	Get availability data of 'practitioner' on 'date'
 	:param date: Date to check in schedule
@@ -749,6 +754,7 @@ def validate_practitioner_schedules(schedule_entry, practitioner):
 
 @frappe.whitelist()
 def update_status(appointment_id, status):
+	frappe.only_for(["System Manager"])
 	frappe.db.set_value("Patient Appointment", appointment_id, "status", status)
 	appointment_booked = True
 	if status == "Cancelled":
@@ -776,6 +782,7 @@ def send_confirmation_msg(doc):
 
 @frappe.whitelist()
 def make_encounter(source_name, target_doc=None):
+	frappe.only_for(["System Manager"])
 	doc = get_mapped_doc(
 		"Patient Appointment",
 		source_name,
@@ -841,6 +848,7 @@ def send_message(doc, message):
 
 @frappe.whitelist()
 def get_events(start, end, filters=None):
+	frappe.only_for(["System Manager"])
 	"""Returns events for Gantt / Calendar view rendering.
 
 	:param start: Start date-time.
@@ -885,6 +893,7 @@ def get_events(start, end, filters=None):
 
 @frappe.whitelist()
 def get_procedure_prescribed(patient):
+	frappe.only_for(["System Manager"])
 	return frappe.db.sql(
 		"""
 			SELECT
@@ -903,6 +912,7 @@ def get_procedure_prescribed(patient):
 
 @frappe.whitelist()
 def get_prescribed_therapies(patient):
+	frappe.only_for(["System Manager"])
 	return frappe.db.sql(
 		"""
 			SELECT

@@ -129,6 +129,7 @@ def validate_service_item(item, msg):
 @frappe.validate_and_sanitize_search_inputs
 def get_practitioner_list(doctype, txt, searchfield, start, page_len, filters=None):
 
+	frappe.only_for(["System Manager"])
 	active_filter = {"status": "Active"}
 
 	filters = {**active_filter, **filters} if filters else active_filter
@@ -151,6 +152,7 @@ def get_practitioner_list(doctype, txt, searchfield, start, page_len, filters=No
 
 @frappe.whitelist()
 def get_supplier_and_user(user_id=None, supplier=None):
+	frappe.only_for(["System Manager"])
 	"""
 	if user_id or supplier is passed, return both supplier and user_id
 	"""

@@ -79,6 +79,7 @@ class HealthcareServiceUnitType(Document):
 
 	@frappe.whitelist()
 	def create_service_unit_item(self):
+		frappe.only_for(["System Manager"])
 		create_item(self)
 
 
@@ -147,6 +148,7 @@ def update_item(doc):
 
 @frappe.whitelist()
 def change_item_code(item, item_code, doc_name):
+	frappe.only_for(["System Manager"])
 	if frappe.db.exists({"doctype": "Item", "item_code": item_code}):
 		frappe.throw(_("Item with Item Code {0} already exists").format(item_code))
 	else:

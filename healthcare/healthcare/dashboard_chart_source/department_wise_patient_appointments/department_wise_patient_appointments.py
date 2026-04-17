@@ -20,6 +20,7 @@ def get(
 	time_interval=None,
 	heatmap_year=None,
 ):
+	frappe.only_for(["System Manager"])
 	if chart_name:
 		chart = frappe.get_doc("Dashboard Chart", chart_name)
 	else:

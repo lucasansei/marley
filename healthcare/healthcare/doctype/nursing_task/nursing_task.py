@@ -136,6 +136,7 @@ class NursingTask(Document):
 
 @frappe.whitelist()
 def create_nursing_tasks_from_template(template, doc, start_time, post_event=True):
+	frappe.only_for(["System Manager"])
 	if isinstance(doc, string_types):
 		doc = json.loads(doc)
 

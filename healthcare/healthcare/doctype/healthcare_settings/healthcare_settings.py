@@ -42,6 +42,7 @@ def validate_service_item(item):
 
 @frappe.whitelist()
 def get_sms_text(doc):
+	frappe.only_for(["System Manager"])
 	sms_text = {}
 	doc = frappe.get_doc("Lab Test", doc)
 	context = {"doc": doc, "alert": doc, "comments": None}

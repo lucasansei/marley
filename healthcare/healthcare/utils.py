@@ -27,6 +27,7 @@ from healthcare.setup import setup_healthcare
 
 @frappe.whitelist()
 def get_healthcare_services_to_invoice(patient, customer, company, link_customer=False):
+	frappe.only_for(["System Manager"])
 	patient = frappe.get_doc("Patient", patient)
 	items_to_invoice = []
 	if patient:
@@ -412,6 +413,7 @@ def get_service_requests_to_invoice(patient, company):
 
 @frappe.whitelist()
 def get_appointment_billing_item_and_rate(doc):
+	frappe.only_for(["System Manager"])
 	if isinstance(doc, str):
 		doc = json.loads(doc)
 		doc = frappe.get_doc(doc)
@@ -706,6 +708,7 @@ def manage_doc_for_appointment(dt_from_appointment, appointment, invoiced):
 
 @frappe.whitelist()
 def get_drugs_to_invoice(encounter, customer, link_customer=False):
+	frappe.only_for(["System Manager"])
 	encounter = frappe.get_doc("Patient Encounter", encounter)
 	if link_customer:
 		frappe.db.set_value("Patient", encounter.patient, "customer", customer)
@@ -766,6 +769,7 @@ def get_drugs_to_invoice(encounter, customer, link_customer=False):
 
 @frappe.whitelist()
 def get_children(doctype, parent=None, company=None, is_root=False):
+	frappe.only_for(["System Manager"])
 	parent_fieldname = "parent_" + doctype.lower().replace(" ", "_")
 	fields = ["name as value", "is_group as expandable", "lft", "rgt"]
 
@@ -809,6 +813,7 @@ def get_children(doctype, parent=None, company=None, is_root=False):
 
 @frappe.whitelist()
 def get_patient_vitals(patient, from_date=None, to_date=None):
+	frappe.only_for(["System Manager"])
 	if not patient:
 		return
 
@@ -827,6 +832,7 @@ def get_patient_vitals(patient, from_date=None, to_date=None):
 @frappe.whitelist()
 def render_docs_as_html(docs):
 	# docs key value pair {doctype: docname}
+	frappe.only_for(["System Manager"])
 	docs_html = "<div class='col-md-12 col-sm-12 text-muted'>"
 	for doc in docs:
 		docs_html += render_doc_as_html(doc["doctype"], doc["docname"])["html"] + "<br/>"
@@ -835,6 +841,7 @@ def render_docs_as_html(docs):
 
 @frappe.whitelist()
 def render_doc_as_html(doctype, docname, exclude_fields=None):
+	frappe.only_for(["System Manager"])
 	"""
 	Render document as HTML
 	"""
@@ -1098,6 +1105,7 @@ def validate_nursing_tasks(document):
 
 @frappe.whitelist()
 def get_medical_codes(template_dt, template_dn, code_standard=None):
+	frappe.only_for(["System Manager"])
 	"""returns codification table from templates"""
 	filters = {"parent": template_dn, "parenttype": template_dt}
 
@@ -1385,6 +1393,7 @@ def has_direct_leaf_component(template_name):
 
 @frappe.whitelist()
 def generate_barcodes(in_val):
+	frappe.only_for(["System Manager"])
 	from io import BytesIO
 
 	from barcode import Code128
@@ -1407,6 +1416,7 @@ def generate_barcodes(in_val):
 
 @frappe.whitelist()
 def add_node():
+	frappe.only_for(["System Manager"])
 	from frappe.desk.treeview import make_tree_args
 
 	args = make_tree_args(**frappe.form_dict)

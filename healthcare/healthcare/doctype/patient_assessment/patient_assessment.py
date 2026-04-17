@@ -21,6 +21,7 @@ class PatientAssessment(Document):
 
 @frappe.whitelist()
 def create_patient_assessment(source_name, target_doc=None):
+	frappe.only_for(["System Manager"])
 	doc = get_mapped_doc(
 		"Therapy Session",
 		source_name,

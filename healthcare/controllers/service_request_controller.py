@@ -54,4 +54,5 @@ class ServiceRequestController(Document):
 
 @frappe.whitelist()
 def set_request_status(doctype, request, status):
+	frappe.only_for(["System Manager"])
 	frappe.db.set_value(doctype, request, "status", status)

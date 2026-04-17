@@ -53,6 +53,7 @@ class ClinicalProcedureTemplate(Document):
 
 @frappe.whitelist()
 def get_item_details(args=None):
+	frappe.only_for(["System Manager"])
 	if not isinstance(args, dict):
 		args = json.loads(args)
 
@@ -120,6 +121,7 @@ def make_item_price(item, item_price):
 
 @frappe.whitelist()
 def change_item_code_from_template(item_code, doc):
+	frappe.only_for(["System Manager"])
 	doc = frappe._dict(json.loads(doc))
 
 	if frappe.db.exists("Item", {"item_code": item_code}):

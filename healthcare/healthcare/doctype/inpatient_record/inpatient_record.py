@@ -94,14 +94,17 @@ class InpatientRecord(Document):
 
 	@frappe.whitelist()
 	def admit(self, service_unit, check_in, expected_discharge=None):
+		frappe.only_for(["System Manager"])
 		admit_patient(self, service_unit, check_in, expected_discharge)
 
 	@frappe.whitelist()
 	def discharge(self):
+		frappe.only_for(["System Manager"])
 		discharge_patient(self)
 
 	@frappe.whitelist()
 	def transfer(self, service_unit, check_in, leave_from):
+		frappe.only_for(["System Manager"])
 		if leave_from:
 			patient_leave_service_unit(self, check_in, leave_from)
 		if service_unit:
@@ -110,6 +113,7 @@ class InpatientRecord(Document):
 
 @frappe.whitelist()
 def schedule_inpatient(args):
+	frappe.only_for(["System Manager"])
 	admission_order = json.loads(args)  # admission order via Encounter
 	if (
 		not admission_order
@@ -164,6 +168,7 @@ def schedule_inpatient(args):
 
 @frappe.whitelist()
 def schedule_discharge(args):
+	frappe.only_for(["System Manager"])
 	discharge_order = json.loads(args)
 	inpatient_record_id = frappe.db.get_value(
 		"Patient", discharge_order["patient"], "inpatient_record"
@@ -391,6 +396,7 @@ def patient_leave_service_unit(inpatient_record, check_out, leave_from):
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_leave_from(doctype, txt, searchfield, start, page_len, filters):
+	frappe.only_for(["System Manager"])
 	docname = filters["docname"]
 
 	query = """select io.service_unit
@@ -421,6 +427,7 @@ def is_service_unit_billable(service_unit):
 
 @frappe.whitelist()
 def set_ip_order_cancelled(inpatient_record, reason, encounter=None):
+	frappe.only_for(["System Manager"])
 	inpatient_record = frappe.get_doc("Inpatient Record", inpatient_record)
 	if inpatient_record.status == "Admission Scheduled":
 		inpatient_record.status = "Cancelled"

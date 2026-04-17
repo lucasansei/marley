@@ -79,6 +79,7 @@ def set_diagnostic_status(doc):
 
 @frappe.whitelist()
 def set_observation_status(docname):
+	frappe.only_for(["System Manager"])
 	doc = frappe.get_doc("Diagnostic Report", docname)
 	if doc.ref_doctype == "Sales Invoice":
 		observations = frappe.db.get_all(

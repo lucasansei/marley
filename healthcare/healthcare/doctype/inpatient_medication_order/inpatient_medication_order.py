@@ -66,6 +66,7 @@ class InpatientMedicationOrder(Document):
 
 	@frappe.whitelist()
 	def add_order_entries(self, order):
+		frappe.only_for(["System Manager"])
 		if order.get("drug_code"):
 			dosage = frappe.get_doc("Prescription Dosage", order.get("dosage"))
 			dates = get_prescription_dates(order.get("period"), self.start_date)
@@ -83,6 +84,7 @@ class InpatientMedicationOrder(Document):
 
 	@frappe.whitelist()
 	def get_from_encounter(self, encounter):
+		frappe.only_for(["System Manager"])
 		patient_encounter = frappe.get_doc("Patient Encounter", encounter)
 		if not patient_encounter.drug_prescription:
 			return

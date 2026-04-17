@@ -176,6 +176,7 @@ class Patient(Document):
 
 	@frappe.whitelist()
 	def invoice_patient_registration(self):
+		frappe.only_for(["System Manager"])
 		registration_fee = frappe.db.get_single_value("Healthcare Settings", "registration_fee")
 		if not registration_fee:
 			return
@@ -369,6 +370,7 @@ def make_invoice(patient, company):
 
 @frappe.whitelist()
 def get_patient_detail(patient):
+	frappe.only_for(["System Manager"])
 	patient_dict = frappe.db.sql("""select * from tabPatient where name=%s""", (patient), as_dict=1)
 	if not patient_dict:
 		frappe.throw(_("Patient not found"))

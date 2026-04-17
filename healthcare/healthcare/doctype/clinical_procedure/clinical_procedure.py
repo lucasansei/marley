@@ -118,6 +118,7 @@ class ClinicalProcedure(Document):
 
 	@frappe.whitelist()
 	def complete_procedure(self):
+		frappe.only_for(["System Manager"])
 		if self.consume_stock and self.items:
 			stock_entry = make_stock_entry(self)
 
@@ -181,6 +182,7 @@ class ClinicalProcedure(Document):
 
 	@frappe.whitelist()
 	def start_procedure(self):
+		frappe.only_for(["System Manager"])
 		allow_start = self.set_actual_qty()
 
 		if allow_start:
@@ -206,6 +208,7 @@ class ClinicalProcedure(Document):
 
 	@frappe.whitelist()
 	def make_material_receipt(self, submit=False):
+		frappe.only_for(["System Manager"])
 		stock_entry = frappe.new_doc("Stock Entry")
 
 		stock_entry.stock_entry_type = "Material Receipt"
@@ -249,11 +252,13 @@ def get_stock_qty(item_code, warehouse):
 
 @frappe.whitelist()
 def get_procedure_consumables(procedure_template):
+	frappe.only_for(["System Manager"])
 	return get_items("Clinical Procedure Item", procedure_template, "Clinical Procedure Template")
 
 
 @frappe.whitelist()
 def set_stock_items(doc, stock_detail_parent, parenttype):
+	frappe.only_for(["System Manager"])
 	items = get_items("Clinical Procedure Item", stock_detail_parent, parenttype)
 
 	for item in items:
@@ -284,6 +289,7 @@ def get_items(table, parent, parenttype):
 
 @frappe.whitelist()
 def make_stock_entry(doc):
+	frappe.only_for(["System Manager"])
 	stock_entry = frappe.new_doc("Stock Entry")
 	stock_entry = set_stock_items(stock_entry, doc.name, "Clinical Procedure")
 	stock_entry.stock_entry_type = "Material Issue"
@@ -303,6 +309,7 @@ def make_stock_entry(doc):
 
 @frappe.whitelist()
 def make_procedure(source_name, target_doc=None):
+	frappe.only_for(["System Manager"])
 	def set_missing_values(source, target):
 		consume_stock = frappe.db.get_value(
 			"Clinical Procedure Template", source.procedure_template, "consume_stock"
@@ -352,6 +359,7 @@ def make_procedure(source_name, target_doc=None):
 
 @frappe.whitelist()
 def get_procedure_prescribed(patient, encounter=False):
+	frappe.only_for(["System Manager"])
 	hso = frappe.qb.DocType("Service Request")
 	return (
 		frappe.qb.from_(hso)

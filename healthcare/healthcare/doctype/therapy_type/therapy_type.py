@@ -68,6 +68,7 @@ class TherapyType(Document):
 
 	@frappe.whitelist()
 	def add_exercises(self):
+		frappe.only_for(["System Manager"])
 		exercises = self.get_exercises_for_body_parts()
 		last_idx = max(
 			[cint(d.idx) for d in self.get("exercises")]
@@ -130,6 +131,7 @@ def create_item_from_therapy(doc):
 
 @frappe.whitelist()
 def change_item_code_from_therapy(item_code, doc):
+	frappe.only_for(["System Manager"])
 	doc = frappe._dict(json.loads(doc))
 
 	if frappe.db.exists("Item", {"item_code": item_code}):

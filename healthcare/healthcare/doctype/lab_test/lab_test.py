@@ -132,12 +132,14 @@ def create_test_from_template(lab_test):
 
 @frappe.whitelist()
 def update_status(status, name):
+	frappe.only_for(["System Manager"])
 	if name and status:
 		frappe.db.set_value("Lab Test", name, {"status": status, "approved_date": getdate()})
 
 
 @frappe.whitelist()
 def create_multiple(doctype, docname):
+	frappe.only_for(["System Manager"])
 	if not doctype or not docname:
 		frappe.throw(
 			_("Sales Invoice or Patient Encounter is required to create Lab Tests"),
@@ -428,6 +430,7 @@ def load_result_format(lab_test, template, prescription, invoice):
 
 @frappe.whitelist()
 def get_employee_by_user_id(user_id):
+	frappe.only_for(["System Manager"])
 	emp_id = frappe.db.exists("Employee", {"user_id": user_id})
 	if emp_id:
 		return frappe.get_doc("Employee", emp_id)
@@ -436,6 +439,7 @@ def get_employee_by_user_id(user_id):
 
 @frappe.whitelist()
 def get_lab_test_prescribed(patient):
+	frappe.only_for(["System Manager"])
 	hso = frappe.qb.DocType("Service Request")
 	return (
 		frappe.qb.from_(hso)

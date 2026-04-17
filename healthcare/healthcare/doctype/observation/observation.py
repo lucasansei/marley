@@ -132,6 +132,7 @@ class Observation(Document):
 
 @frappe.whitelist()
 def get_observation_details(docname):
+	frappe.only_for(["System Manager"])
 	reference = frappe.get_value(
 		"Diagnostic Report", docname, ["docname", "ref_doctype"], as_dict=True
 	)
@@ -324,6 +325,7 @@ def set_reference_string(child):
 
 @frappe.whitelist()
 def edit_observation(observation, data_type, result):
+	frappe.only_for(["System Manager"])
 	observation_doc = frappe.get_doc("Observation", observation)
 	if data_type in ["Range", "Ratio", "Quantity", "Numeric"]:
 		observation_doc.result_data = result
@@ -336,6 +338,7 @@ def edit_observation(observation, data_type, result):
 
 @frappe.whitelist()
 def add_observation(**args):
+	frappe.only_for(["System Manager"])
 	observation_doc = frappe.new_doc("Observation")
 	observation_doc.posting_datetime = now_datetime()
 	observation_doc.patient = args.get("patient")
@@ -362,6 +365,7 @@ def add_observation(**args):
 
 @frappe.whitelist()
 def record_observation_result(values):
+	frappe.only_for(["System Manager"])
 	values = json.loads(values)
 	if values:
 		values = [dict(t) for t in {tuple(d.items()) for d in values}]
@@ -447,6 +451,7 @@ def record_observation_result(values):
 
 @frappe.whitelist()
 def add_note(note, observation):
+	frappe.only_for(["System Manager"])
 	if note and observation:
 		frappe.db.set_value("Observation", observation, "note", note)
 
@@ -472,6 +477,7 @@ def is_numbers_with_exceptions(value):
 
 @frappe.whitelist()
 def get_observation_result_template(template_name, observation):
+	frappe.only_for(["System Manager"])
 	if observation:
 		observation_doc = frappe.get_doc("Observation", observation)
 		patient_doc = frappe.get_doc("Patient", observation_doc.get("patient"))
@@ -485,6 +491,7 @@ def get_observation_result_template(template_name, observation):
 
 @frappe.whitelist()
 def set_observation_status(observation, status, reason=None, parent_obs=None):
+	frappe.only_for(["System Manager"])
 	observation_doc = frappe.get_doc("Observation", observation)
 
 	if not (observation_doc.has_result() or observation_doc.has_component):
