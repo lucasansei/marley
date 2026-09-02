@@ -534,9 +534,16 @@ def get_healthcare_service_item(is_inpatient):
 
 
 def manage_invoice_validate(doc, method):
-	if doc.service_unit and len(doc.items):
+	# `service_unit` é Custom Field opcional do Sales Invoice (ativado por
+	# Healthcare Settings em sites com service units). Em sites onde o
+	# campo não foi instalado — caso do VetPath, que usa Sales Invoice
+	# para faturar laudo (serviço) sem unidade hospitalar — acessar
+	# `doc.service_unit` levanta AttributeError. `getattr` defensivo
+	# preserva o comportamento original quando o campo existe e
+	# transforma em no-op silencioso quando não.
+	if getattr(doc, "service_unit", None) and len(doc.items):
 		for item in doc.items:
-			if not item.service_unit:
+			if not item.get("service_unit"):
 				item.service_unit = doc.service_unit
 
 
