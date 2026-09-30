@@ -548,7 +548,10 @@ def manage_invoice_validate(doc, method):
 
 
 def manage_invoice_submit_cancel(doc, method):
-	if not doc.patient:
+	# Mesmo caso de `manage_invoice_validate`: sites sem o Custom Field
+	# `patient` no Sales Invoice (VetPath fatura laudo veterinário, sem
+	# Patient) levantavam AttributeError no submit/cancel.
+	if not getattr(doc, "patient", None):
 		return
 
 	if doc.items:
